@@ -41,6 +41,8 @@ class Blog extends Model
     public function updateBlog($request, $BlogID)
     {
         try {
+            $exist=Blog::find($BlogID);
+            if(count($exist)>0){
             $data = array(
                 'title'   =>  $request->title,
                 'content' =>  $request->content
@@ -52,6 +54,9 @@ class Blog extends Model
             } else {
                 return true;
             }
+        }else{
+            return false;
+        }
         } catch (\Exception $e) {
             return false;
         }
