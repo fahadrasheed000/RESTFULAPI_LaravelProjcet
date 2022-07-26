@@ -37,11 +37,7 @@ class Handler extends ExceptionHandler
     {
 
         $this->renderable(function (Exception $e, $request) {
-
-                $response = $this->customApiResponse($e, $request);
-                $message = $response['message'];
-                return response()->view('errors.http_errors', compact('message'));
-
+            return  $this->customApiResponse($e, $request);
         });
     }
     private function customApiResponse($exception, $request)
@@ -84,8 +80,9 @@ class Handler extends ExceptionHandler
             //  $response['trace'] = $exception->getTrace();
             // $response['code'] = $exception->getCode();
         }
-
-        $response['status'] = 'errors';
-        return $response;
+        if ($statusCode != 500) {
+            $response['status'] = 'errors';
+            return response()->json($response, $statusCode);
+        }
     }
 }
