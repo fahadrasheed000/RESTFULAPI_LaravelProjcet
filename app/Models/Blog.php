@@ -41,7 +41,7 @@ class Blog extends Model
     public function updateBlog($request, $BlogID)
     {
         try {
-            $exist=Blog::find($BlogID);
+            $exist=Blog::select('id')->where('id',$BlogID)->get();
             if(count($exist)>0){
             $data = array(
                 'title'   =>  $request->title,
