@@ -2,7 +2,7 @@
     function GetBlogs(id) {
         var tokenzzz = $('#token').val();
         $.ajax({
-            url: "http://127.0.0.1:8000/api/blogs",
+            url: "https://task2.ebazaar360.com/api/blogs",
             type: 'GET',
             dataType: 'json',
             headers: {
