@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## PROJECT
 
 Restful API Cruds using JWT Token
+
+## PROJECT Configuration
+-------------------------
+Install Composer
+Composer update
+Php artisan migrate
+php artisan db:seed
+Please add .Env file according to the .env.example file
